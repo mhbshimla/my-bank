@@ -1,46 +1,45 @@
-<?php
+<?php 
+    //$con = new mysqli('localhost','root','','mybank');
+    //define('bankName', 'MCB Bank',true);
+    //$ar = $con->query("select * from userAccounts,branch where id = '$_SESSION[userId]' AND userAccounts.branch = branch.branchId");
+   // $userData = $ar->fetch_assoc();
+//?>
+ <script type="text/javascript"> 
+	 $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+ </script> 
+
+
+<!-- <script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script> -->
+
+
+<?php 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// ✅ Auto-switch between localhost and InfinityFree
-if (in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1'])) {
-    // Localhost (XAMPP/WAMP)
-    $con = new mysqli('localhost', 'root', '', 'mybank');
-} else {
-    // InfinityFree (Live Hosting)
-    $con = new mysqli('sql100.infinityfree.com', 'if0_40476525', 'banK12345', 'if0_40476525_mybank');
-}
 
-// ✅ Connection check
-if ($con->connect_error) {
-    die("Database connection failed: " . $con->connect_error);
-}
-
-// ✅ Bank name constant
+$con = new mysqli('localhost:3306','root','','mybank');
 define('bankName', 'MCB Bank');
 
-// ✅ Fetch user data safely if logged in
-$userData = null;
+$userData = null; // default value
+
+// ✅ Only run this query if the session key exists
 if (isset($_SESSION['userId'])) {
-    $stmt = $con->prepare("
-        SELECT * 
-        FROM userAccounts 
-        JOIN branch ON userAccounts.branch = branch.branchId 
-        WHERE userAccounts.id = ?
-    ");
-    if ($stmt) {
-        $stmt->bind_param("i", $_SESSION['userId']);
-        $stmt->execute();
-        $result   = $stmt->get_result();
-        $userData = $result->fetch_assoc();
-        $stmt->close();
-    }
+    $ar = $con->query("SELECT * FROM userAccounts, branch 
+                       WHERE id = '{$_SESSION['userId']}' 
+                       AND userAccounts.branch = branch.branchId");
+    $userData = $ar->fetch_assoc();
 }
 ?>
-<!-- Tooltip initialization -->
 <script type="text/javascript">
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-});
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
+

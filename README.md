@@ -74,6 +74,9 @@ Make sure your database credentials are correct:
 
 
 ---
+###  **Live - Deployed In InfiniteFree**
+- https://mybank.infinityfree.me/MCB-Bank/home.php
+- https://mybank.infinityfree.me/MCB-Bank/adminPanel/admin_login.php
 ## ⚠️ Disclaimer
 This project was developed as a part of **university project work**.  
 It is intended **for learning and demonstration purposes only** and should not be used in real-world banking operations.  
