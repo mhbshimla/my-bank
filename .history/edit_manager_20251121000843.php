@@ -48,12 +48,12 @@ $manager = $result->fetch_assoc();
 <head>
     <title>Edit Profile - MCB Bank</title>
     <style>
-         body {
+        body {
             background: url("images/bg-login5.jpg") no-repeat center center fixed;
             background-size: cover;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
-            padding-top: 100px; /* increased to clear fixed header */
+            padding-top: 80px;
         }
         .card {
             background: rgba(0,0,0,0.7);
@@ -94,15 +94,10 @@ $manager = $result->fetch_assoc();
     </style>
 </head>
 <body>
- <!-- Header with logo aligned left -->
-<header style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(0,0,0,0.85); padding: 12px 25px; display: flex; align-items: center; justify-content: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 1000;">
-    <img src="images/logo.png" alt="MCB Bank Logo" style="height:40px; margin-right:12px;">
-    <h2 style="margin:0; font-weight:600; color:#ffffff;">MCB Bank</h2>
-    <div style="position: absolute; top: 20px; right: 20px;">
-    <a href="mindex.php" class="btn btn-secondary btn-sm">⬅ Back</a>
-    <a href="index.php" class="btn btn-danger btn-sm">Logout</a>
-    </div>
-</header>
+<div style="position: absolute; top: 20px; right: 20px;">
+  <a href="manager_profile.php" class="btn btn-secondary btn-sm">⬅ Back</a>
+  <a href="mlogout.php" class="btn btn-danger btn-sm">Logout</a>
+</div>
 <div class="container">
     <div class="card w-75 mx-auto">
         <h3 class="text-center mb-4">Edit Your Profile</h3>
